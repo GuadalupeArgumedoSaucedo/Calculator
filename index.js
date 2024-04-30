@@ -16,27 +16,34 @@ function init() {
     divideBtn.onclick = onDivideBtnClicked ;  
     } 
 
-const n1 = parseFloat(document.getElementById("number1Field").value);
-const n2 = parseFloat(document.getElementById("number2Field").value);
+
+function grabData(){
+const n1 = Number (document.getElementById("number1Field").value);
+const n2 = Number (document.getElementById("number2Field").value);
+}
+
+
+function DisplayData(_result){
+    document.getElementById{"result"}.innerHTML =_result
+}
 
 function onAddBtnClicked() { 
-    const result = Number(n1) + Number(n2);   
+    const result = n1 + n2;   
      } 
 
 function onSubtractBtnClicked() { 
-    const result = Number(n1) - Number(n2);
+    const result = n1 - n2;
     } 
 
 function onMultiplyBtnClicked() { 
-    const result = Number(n1) * Number(n2);
+    const result = n1 * n2;
     } 
 
 function onDivideBtnClicked() { 
-    const result = Number(n1) / Number(n2);
+    const result = n1 / n2;
     } 
 
 function displayResult(result) {
     document.getElementById("result").innerText = result;
-    displayResult(result); 
     }
     
