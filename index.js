@@ -2,6 +2,8 @@
 
 window.onload = init; 
 
+let n1, n2; // Define variables outside the function scope to make them accessible across functions
+
 function init() { 
     const addBtn = document.getElementById("addBtn"); 
     addBtn.onclick = onAddBtnClicked ;  
@@ -14,36 +16,41 @@ function init() {
 
     const divideBtn = document.getElementById("divideBtn"); 
     divideBtn.onclick = onDivideBtnClicked ;  
-    } 
-
+} 
 
 function grabData(){
-const n1 = Number (document.getElementById("number1Field").value);
-const n2 = Number (document.getElementById("number2Field").value);
+    n1 = Number(document.getElementById("number1Field").value); // Assign values to n1 and n2
+    n2 = Number(document.getElementById("number2Field").value);
 }
 
-
-function DisplayData(_result){
-    document.getElementById{"result"}.innerHTML =_result
+function displayResult(result) {
+    document.getElementById("result").value = result; // Use .value instead of .innerText for input fields
 }
 
 function onAddBtnClicked() { 
-    const result = n1 + n2;   
-     } 
+    grabData(); // Call grabData to get the values of n1 and n2
+    const result = n1 + n2;
+    displayResult(result); // Display the result
+} 
 
 function onSubtractBtnClicked() { 
+    grabData(); 
     const result = n1 - n2;
-    } 
+    displayResult(result);
+} 
 
 function onMultiplyBtnClicked() { 
+    grabData(); 
     const result = n1 * n2;
-    } 
+    displayResult(result);
+} 
 
 function onDivideBtnClicked() { 
-    const result = n1 / n2;
-    } 
-
-function displayResult(result) {
-    document.getElementById("result").innerText = result;
+    grabData(); 
+    if (n2 === 0) {
+        displayResult("Cannot divide by zero");
+    } else {
+        const result = n1 / n2;
+        displayResult(result);
     }
-    
+} 
